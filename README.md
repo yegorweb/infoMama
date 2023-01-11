@@ -1,4 +1,4 @@
-# default
+# Проект "Инфо Мама"
 
 ## Project setup
 
