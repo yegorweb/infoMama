@@ -1,32 +1,44 @@
 <template>
-    <v-row
-      align="center"
-      justify="space-around"
+  <v-app>
+    <!-- Header -->
+    <v-app-bar>
+      <v-app-bar-title>ИнфоМама</v-app-bar-title>
+      <v-icon
+        @click="navigationDrawerIsOpen = !navigationDrawerIsOpen" 
+        icon="mdi-menu" 
+        color="black"
+      ></v-icon>      
+    </v-app-bar>
+    
+    <!-- Панель навигации -->
+    <v-navigation-drawer
+      v-model="navigationDrawerIsOpen"
+      location="right"
+      temporary
     >
-      <v-btn depressed>
-        Normal
-      </v-btn>
-      <v-btn
-        depressed
-        color="primary"
-      >
-        Primary
-      </v-btn>
-      <v-btn
-        depressed
-        color="error"
-      >
-        Error
-      </v-btn>
-      <v-btn
-        depressed
-        disabled
-      >
-        Disabled
-      </v-btn>
-    </v-row>
-  </template>
+      <v-list>
+        <v-list-item><router-link to="/blog">Блог</router-link></v-list-item>
+        <v-list-item><router-link to="/education">Образование</router-link></v-list-item>
+        <v-list-item><router-link to="/medicine">Медицина</router-link></v-list-item>
+        <v-list-item><router-link to="/leisure">Досуг</router-link></v-list-item>
+        <v-list-item><router-link to="/support">Помощь</router-link></v-list-item>
+        <v-list-item><router-link to="/beauty">Красота</router-link></v-list-item>
+        <v-list-item><router-link to="/job">Работа</router-link></v-list-item>
+        <v-list-item><router-link to="/fleaMarket">Барахолка</router-link></v-list-item>
+        <v-list-item><router-link to="/delivery">Доставка продуктов</router-link></v-list-item>
+        <v-list-item><router-link to="/aboutUs">О нас</router-link></v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+
+    <!-- Pages -->
+    <v-main>
+      <router-view></router-view>
+    </v-main>
+  </v-app>
+</template>
   
 <script setup>
+import { ref } from "vue-demi";
 
+let navigationDrawerIsOpen = ref(false)
 </script>
