@@ -4,8 +4,13 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
   {
     path: '/',
-    component: () => import('@/layouts/Home.vue'),
+    component: () => import('@/layouts/MainLayout.vue'),
     children: [
+      {
+        path: '/',
+        name: 'Home',
+        component: () => import('@/views/HomePage.vue')
+      },
       {
         path: '/blog',
         name: 'Blog',
