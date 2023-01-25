@@ -1,5 +1,5 @@
 <template>
-  home
+  <v-btn to="/mainForm">Создать</v-btn>
 </template>
 
 <script setup>

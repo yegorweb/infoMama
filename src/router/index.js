@@ -60,6 +60,11 @@ const routes = [
         path: '/aboutUs',
         name: 'AboutUs',
         component: () => import('@/views/AboutUsPage.vue')
+      },
+      {
+        path: '/mainForm',
+        name: 'MainForm',
+        component: () => import('@/components/MainForm.vue')
       }
     ]
   }

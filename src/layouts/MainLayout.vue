@@ -17,17 +17,7 @@
       temporary
     >
       <v-list>
-        <v-list-item><router-link class="nav-list-item-link" to="/">Главная</router-link></v-list-item>
-        <v-list-item><router-link class="nav-list-item-link" to="/blog">Блог</router-link></v-list-item>
-        <v-list-item><router-link class="nav-list-item-link" to="/education">Образование</router-link></v-list-item>
-        <v-list-item><router-link class="nav-list-item-link" to="/medicine">Медицина</router-link></v-list-item>
-        <v-list-item><router-link class="nav-list-item-link" to="/leisure">Досуг</router-link></v-list-item>
-        <v-list-item><router-link class="nav-list-item-link" to="/support">Помощь</router-link></v-list-item>
-        <v-list-item><router-link class="nav-list-item-link" to="/beauty">Красота</router-link></v-list-item>
-        <v-list-item><router-link class="nav-list-item-link" to="/job">Работа</router-link></v-list-item>
-        <v-list-item><router-link class="nav-list-item-link" to="/fleaMarket">Барахолка</router-link></v-list-item>
-        <v-list-item><router-link class="nav-list-item-link" to="/delivery">Доставка продуктов</router-link></v-list-item>
-        <v-list-item><router-link class="nav-list-item-link" to="/aboutUs">О нас</router-link></v-list-item>
+        <v-list-item v-for="button, index in nav_buttons" :key="index"><router-link class="nav-list-item-link" :to="button.route">{{ button.title }}</router-link></v-list-item>
       </v-list>
     </v-navigation-drawer>
 
@@ -40,8 +30,56 @@
   
 <script setup>
 import { ref } from "vue-demi";
+import MainForm from '@/components/MainForm.vue'
 
 let navigationDrawerIsOpen = ref(false)
+
+let nav_buttons = [
+  {
+    route: '/',
+    title: 'Главная'
+  },
+  {
+    route: '/blog',
+    title: 'Блог'
+  },
+  {
+    route: '/education',
+    title: 'Образование'
+  },
+  {
+    route: '/medicine',
+    title: 'Медицина'
+  },
+  {
+    route: '/leisure',
+    title: 'Досуг'
+  },
+  {
+    route: '/support',
+    title: 'Помощь'
+  },
+  {
+    route: '/beauty',
+    title: 'Красота'
+  },
+  {
+    route: '/job',
+    title: 'Работа'
+  },
+  {
+    route: '/fleaMarket',
+    title: 'Барахолка'
+  },
+  {
+    route: '/delivery',
+    title: 'Доставка продуктов'
+  },
+  {
+    route: '/aboutUs',
+    title: 'О нас'
+  }
+]
 </script>
 
 <style lang="scss" scoped>
