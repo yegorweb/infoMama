@@ -41,6 +41,12 @@ import MainForm from '@/components/MainForm.vue'
 
 let navigationDrawerIsOpen = ref(false)
 
+/* Base:
+	{
+		route: '/',
+		title: ''
+	},
+*/
 let nav_buttons = [
 	{
 		route: '/',
