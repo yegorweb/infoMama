@@ -47,6 +47,10 @@ let nav_buttons = [
 		title: 'Главная'
 	},
 	{
+		route: '/mainForm',
+		title: 'Создать'
+	},
+	{
 		route: '/blog',
 		title: 'Блог'
 	},

@@ -1,14 +1,15 @@
 <!-- Форма создания всего -->
 <template>	
-	<v-container style="margin-top: 20px;">
+	<v-container style="margin-top: 24px;">
 
-		<BackButton />
+		<BackButton text="На главную" />
 
 		<!-- Заголовок -->
-		<h2 style="margin-top: 24px">Тут вы можете создать что-нибудь</h2>
+		<h2 style="margin-top: 26px">Тут вы можете создать что-нибудь</h2>
 
 		<!-- Вкладки -->
-		<v-tabs 
+		<v-tabs
+      style="margin-top: 6px;"
 			v-model="number_of_tab" 
 			show-arrows
 		>
@@ -17,7 +18,10 @@
 		</v-tabs>
 
 		<!-- Окна вкладок -->
-		<v-window v-model="number_of_tab">
+		<v-window 
+      style="margin-top: 16px;"
+      v-model="number_of_tab"
+    >
 			<v-window-item :value="1">
 				<v-select
 					style="margin-top: 10px"
@@ -27,14 +31,16 @@
 				/>
 			</v-window-item>
 			<v-window-item :value="2">
-				<div>sss</div>
+				<PostCreation v-if="selected_item=='Пост'" />
 			</v-window-item>
 		</v-window>
 		
 		<!-- Навигация -->
-		<v-btn 
+		<v-btn
+      color="accent"
 			@click="number_of_tab++"
-			:disabled="selected_item.length==0" variant="text"
+			:disabled="selected_item.length==0" 
+      
 		>Далее
 		</v-btn>
 		<v-btn 
@@ -51,6 +57,7 @@
 import router from "@/router";
 import { ref } from "vue-demi";
 import BackButton from "./BackButton.vue";
+import PostCreation from "@/components/CreationForms/PostCreation.vue"
 
 /** Выбранный вариант */
 let selected_item = ref('')
