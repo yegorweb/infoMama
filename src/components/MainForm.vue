@@ -20,13 +20,13 @@
 
 		<!-- Окна вкладок -->
 		<v-window 
-      style="margin-top: 16px;"
+      style="padding: 16px 0 24px 0;"
       v-model="number_of_tab"
     >
 			<!-- Шаг 1 -->
 			<v-window-item :value="1">
 				<v-select
-					style="margin-top: 10px"
+					hide-details
 					label="Что вы хотите создать?"
 					v-model="selected_item"
 					:items="items"
@@ -36,11 +36,12 @@
 			<!-- Шаг 2 -->
 			<v-window-item :value="2">
 				<PostCreation v-if="selected_item=='Пост'" />
+				<ArticleCreation v-if="selected_item=='Статью'" />
 			</v-window-item>
 			
 			<!-- Шаг 3 -->
 			<v-window-item :value="3">
-				step 3
+				<div>step 3</div>
 			</v-window-item>
 
 		</v-window>
@@ -48,10 +49,11 @@
 		<!-- Навигация по шагам -->
 		<v-btn
       color="accent"
-			@click="number_of_tab <= max_amount_of_tabs ? number_of_tab++ : null; last_tab_number = number_of_tab"
+			@click="number_of_tab < max_amount_of_tabs ? number_of_tab++ : null /* FUTURE: submit() */;
+							last_tab_number = number_of_tab"
 			:disabled="selected_item.length==0" 
 		>
-		Далее
+			Далее
 		</v-btn>
 
 		<v-btn 
@@ -69,6 +71,7 @@ import router from "@/router";
 import { ref } from "vue-demi";
 import BackButton from "./BackButton.vue";
 import PostCreation from "@/components/CreationForms/PostCreation.vue"
+import ArticleCreation from "@/components/CreationForms/ArticleCreation.vue"
 
 /** Выбранный вариант */
 let selected_item = ref('')
@@ -84,9 +87,6 @@ let last_tab_number = ref(1)
 
 /** Максимальное количество шагов */
 let max_amount_of_tabs = 3
-
-// Debugger
-//setInterval(() => {console.log(last_tab_number.value)}, 1000)
 </script>
 
 <style lang="scss" scoped>

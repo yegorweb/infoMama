@@ -5,7 +5,7 @@
 			<v-container style="display: flex; flex-direction: row;">
 				<v-app-bar-title>ИнфоМама</v-app-bar-title>
 				<v-icon
-					@click="navigationDrawerIsOpen = !navigationDrawerIsOpen" 
+					@click="navigation_is_open = !navigation_is_open" 
 					icon="mdi-menu" 
 					color="black"
 				></v-icon>
@@ -14,7 +14,7 @@
 		
 		<!-- Панель навигации -->
 		<v-navigation-drawer
-			v-model="navigationDrawerIsOpen"
+			v-model="navigation_is_open"
 			location="right"
 			temporary
 		>
@@ -39,9 +39,9 @@
 import { ref } from "vue-demi";
 import MainForm from '@/components/MainForm.vue'
 
-let navigationDrawerIsOpen = ref(false)
+let navigation_is_open = ref(false)
 
-/* Base:
+/* BASE:
 	{
 		route: '/',
 		title: ''
