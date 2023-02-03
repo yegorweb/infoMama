@@ -14,7 +14,7 @@
 			show-arrows
 		>
 			<v-tab :value="1">Шаг 1</v-tab>
-			<v-tab :value="2" :disabled="last_tab_number < 2">Шаг 2</v-tab>
+			<v-tab :value="2" :disabled="last_tab_number < 2 && selected_item.length==0">Шаг 2</v-tab>
 			<v-tab :value="3" :disabled="last_tab_number < 3">Шаг 3</v-tab>
 		</v-tabs>
 
