@@ -37,6 +37,7 @@
 			<v-window-item :value="2">
 				<PostCreation v-if="selected_item=='Пост'" />
 				<ArticleCreation v-if="selected_item=='Статью'" />
+				<InstitutionCreation v-if="selected_item=='Учреждение'" />
 			</v-window-item>
 			
 			<!-- Шаг 3 -->
@@ -72,6 +73,7 @@ import { ref } from "vue-demi";
 import BackButton from "./BackButton.vue";
 import PostCreation from "@/components/CreationForms/PostCreation.vue"
 import ArticleCreation from "@/components/CreationForms/ArticleCreation.vue"
+import InstitutionCreation from "./CreationForms/InstitutionCreation.vue";
 
 /** Выбранный вариант */
 let selected_item = ref('')
