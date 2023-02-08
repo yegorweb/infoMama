@@ -81,7 +81,7 @@ import ShopCreation from "./CreationForms/ShopCreation.vue";
 let selected_item = ref('')
 
 /** Варианты для создания чего-либо */
-let items = ['Пост', 'Статью', 'Учреждение', 'Магазин']
+let items = ['Пост', 'Статью', 'Учреждение', 'Магазин', 'Вопрос']
 
 /** Номер текущего шага */
 let number_of_tab = ref(1)
