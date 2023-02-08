@@ -2,7 +2,7 @@
 <template>	
 	<v-container style="margin-top: 24px;">
 
-		<BackButton text="На главную" />
+		<BackButton text="На предыдущую страницу" />
 
 		<!-- Заголовок -->
 		<h2 style="margin-top: 26px">Тут вы можете создать что-нибудь</h2>
@@ -38,6 +38,7 @@
 				<PostCreation v-if="selected_item=='Пост'" />
 				<ArticleCreation v-if="selected_item=='Статью'" />
 				<InstitutionCreation v-if="selected_item=='Учреждение'" />
+				<ShopCreation v-if="selected_item=='Магазин'" />
 			</v-window-item>
 			
 			<!-- Шаг 3 -->
@@ -74,12 +75,13 @@ import BackButton from "./BackButton.vue";
 import PostCreation from "@/components/CreationForms/PostCreation.vue"
 import ArticleCreation from "@/components/CreationForms/ArticleCreation.vue"
 import InstitutionCreation from "./CreationForms/InstitutionCreation.vue";
+import ShopCreation from "./CreationForms/ShopCreation.vue";
 
 /** Выбранный вариант */
 let selected_item = ref('')
 
 /** Варианты для создания чего-либо */
-let items = ['Пост', 'Статью', 'Учреждение']
+let items = ['Пост', 'Статью', 'Учреждение', 'Магазин']
 
 /** Номер текущего шага */
 let number_of_tab = ref(1)
@@ -89,6 +91,20 @@ let last_tab_number = ref(1)
 
 /** Максимальное количество шагов */
 let max_amount_of_tabs = 3
+
+// ==== Посты ====
+let post_title = ref('')
+let post_text = ref('')
+let post_images  // FUTURE: допилить
+
+// ==== Статьи ====
+let article_title = ref('')
+let article_topics = ref([])
+let article_text = ref('')
+
+// ==== Учреждения ====
+let institution_type = ref('')
+let institution_name = ref('')
 </script>
 
 <style lang="scss" scoped>
