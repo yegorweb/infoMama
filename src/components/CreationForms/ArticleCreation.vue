@@ -1,19 +1,21 @@
 <template>
-  <v-text-field label="Название статьи"></v-text-field>
+  <v-text-field label="Название"   variant="underlined"></v-text-field>
   <v-select
     chips
-    label="Выберите тематику статьи"
+    label="Тема"
     :items="topics"
     multiple
+    variant="underlined"
+  
   />
   <QuillEditor 
-    placeholder="Напишите здесь всё, что вырывается из глубин души"
+    placeholder="Текст"
     :toolbar="[
       [{ 'size': ['small', false, 'large', 'huge'] }],
-      ['bold', 'italic', 'underline', 'strike', 'image'],
+      ['bold', 'italic', 'underline', 'strike'],
     ]"
     v-model="article" 
-    style="min-height: 30vh;"
+    style="max-height: 200px;"
   />
 </template>
 
