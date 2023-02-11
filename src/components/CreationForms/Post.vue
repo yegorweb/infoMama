@@ -45,8 +45,8 @@ let view_more = ref(false)
       <v-card-title>{{ props.title }}</v-card-title>
       <v-card-subtitle>{{ props.subtitle }}</v-card-subtitle>
       
-      <v-row no-gutters class="mt-2">
-        <div v-for="tag in props.tags" :key="tag" class="topic">{{ tag }}</div>
+      <v-row no-gutters class="mt-2 d-flex flex-wrap">
+        <div v-for="tag in props.tags" :key="tag" class="topic mr-1">{{ tag }}</div>
       </v-row>
 
       <div class="mt-6">
@@ -60,7 +60,9 @@ let view_more = ref(false)
         Показать больше
       </div>
 
-      <v-carousel hide-delimiters>
+      <v-carousel 
+        hide-delimiters
+      >
         <v-carousel-item v-for="url in props.photos" :key="url" :src="url" />
       </v-carousel>
     </v-card-item>
