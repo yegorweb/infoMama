@@ -14,23 +14,28 @@ const routTo = (to) => {
         :elevation="isHovering ? 16 : 2"
         :class="{ 'on-hover': isHovering }"
         v-bind="props"
-        >  <v-img
-        height="100%"
-        class="d-flex justify-center align-center text-center"
-        src="../assets/images/main-banner.webp"
-        cover
-      > Ответы</v-img>
+      >
+        <v-img
+          height="100%"
+          class="d-flex justify-center align-end text-center"
+          src="../assets/images/main-banner.webp"
+          cover
+        >
+          Ответы</v-img
+        >
       </v-card>
     </v-hover>
     <v-card class="article" color="attention">Статьи </v-card>
     <v-card class="post" color="success">
       <v-img
         height="100%"
-        class="d-flex justify-center align-center text-center"
+        class="d-flex justify-center text-center"
         src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"
         cover
-      > Блоги</v-img
-    ></v-card>
+      >
+        Блоги</v-img
+      ></v-card
+    >
     <v-card class="dictionary" color="primary">Справочники </v-card>
     <v-card class="answer" color="secondary" @click="routTo('/mainForm')"
       >Найти</v-card
@@ -49,17 +54,36 @@ const routTo = (to) => {
   display: grid;
   height: calc(100vh - 100px);
   gap: 10px 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-areas:
     "blog article article"
     "blog answer post"
     "blog create post"
     "dictionary dictionary post";
-  .v-card {
 
+  .v-card {
     text-transform: uppercase;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+}
+@media (max-width: 960px) {
+  .home-page {
+    padding: 10px;
+    display: grid;
+    height: calc(100vh - 100px);
+    gap: 5px 5px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "blog article"
+      "blog article"
+      " answer post"
+      " answer post"
+      "create dictionary"
+      "create dictionary";
   }
 }
 .blog {
@@ -76,7 +100,6 @@ const routTo = (to) => {
 }
 .post {
   grid-area: post;
-
 }
 .create {
   grid-area: create;
