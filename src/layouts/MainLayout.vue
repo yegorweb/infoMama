@@ -1,13 +1,13 @@
 <template>
 	<v-app>
 		<!-- Header -->
-		<v-app-bar>
+		<v-app-bar color="primary">
 			<v-container style="display: flex; flex-direction: row;">
 				<v-app-bar-title>ИнфоМама</v-app-bar-title>
 				<v-icon
 					@click="navigation_is_open = !navigation_is_open" 
 					icon="mdi-menu" 
-					color="black"
+					
 				></v-icon>
 			</v-container>
 		</v-app-bar>
