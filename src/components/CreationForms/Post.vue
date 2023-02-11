@@ -40,7 +40,10 @@ let view_more = ref(false)
 </script>
 
 <template>
-  <v-card>
+  <v-card 
+    style="height: 100%; position: relative;" 
+    :class="props.promo ? 'bg-lime-lighten-3': ''"
+  >
     <v-card-item>
       <v-card-title>{{ props.title }}</v-card-title>
       <v-card-subtitle>{{ props.subtitle }}</v-card-subtitle>
@@ -53,18 +56,22 @@ let view_more = ref(false)
         {{ props.description.length < 50 || view_more ? props.description : props.description.slice(0, 50)+'...' }}
       </div>
       <div 
-        class="p-1 text-secondary"
-        style="cursor: pointer" 
+        class="text-blue-grey-darken-3 view-more"
+        style="cursor: pointer"
         v-if="props.description.length >= 50 && !view_more" @click="view_more = true"
       >
         Показать больше
       </div>
 
-      <v-carousel 
+      <v-carousel
         hide-delimiters
+        class="mt-6"
+        height="300px"
       >
         <v-carousel-item v-for="url in props.photos" :key="url" :src="url" />
       </v-carousel>
+
+      <div v-if="props.promo" class="ads">реклама</div>
     </v-card-item>
   </v-card>
 </template>
@@ -75,5 +82,19 @@ let view_more = ref(false)
   font-size: 14px;
   border: 1px solid rgb(var(--v-theme-accent));
   border-radius: 99px;
+}
+// .view-more {
+//   border-radius: 3px;
+//   padding: 1px;
+
+//   &:hover {
+//     background: rgba($color: #000000, $alpha: 0.1);
+//   }
+// }
+.ads {
+  position: absolute;
+  bottom: 2px;
+  right: 14px;
+  color: rgba($color: #000000, $alpha: 0.4);
 }
 </style>
