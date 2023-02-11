@@ -1,4 +1,6 @@
 <script setup>
+import { ref } from "vue-demi"
+
 let props = defineProps({
   title: {
     type: String,
@@ -33,6 +35,8 @@ let props = defineProps({
     required: true
   },
 })
+
+let view_more = ref(false)
 </script>
 
 <template>
@@ -40,10 +44,22 @@ let props = defineProps({
     <v-card-item>
       <v-card-title>{{ props.title }}</v-card-title>
       <v-card-subtitle>{{ props.subtitle }}</v-card-subtitle>
-      <v-row no-gutters class="gap-5">
+      
+      <v-row no-gutters class="mt-2">
         <div v-for="tag in props.tags" :key="tag" class="topic">{{ tag }}</div>
       </v-row>
-      <div>{{ props.description }}</div>
+
+      <div class="mt-6">
+        {{ props.description.length < 50 || view_more ? props.description : props.description.slice(0, 50)+'...' }}
+      </div>
+      <div 
+        class="p-1 text-secondary"
+        style="cursor: pointer" 
+        v-if="props.description.length >= 50 && !view_more" @click="view_more = true"
+      >
+        Показать больше
+      </div>
+
       <v-carousel hide-delimiters>
         <v-carousel-item v-for="url in props.photos" :key="url" :src="url" />
       </v-carousel>
