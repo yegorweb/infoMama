@@ -15,7 +15,7 @@
       ['bold', 'italic', 'underline', 'strike'],
     ]"
     v-model="article" 
-    style="max-height: 200px;"
+   
   />
 </template>
 

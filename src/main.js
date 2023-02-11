@@ -1,6 +1,7 @@
 import App from './App.vue'
 import { createApp } from 'vue'
 import { registerPlugins } from '@/plugins'
+import './assets/styles/main.scss'
 
 // Текстовый редактор для статей
 import { QuillEditor } from '@vueup/vue-quill'
@@ -10,5 +11,5 @@ const app = createApp(App)
 registerPlugins(app)
 
 app
-.component('QuillEditor', QuillEditor)
-.mount('#app')
+    .component('QuillEditor', QuillEditor)
+    .mount('#app')

@@ -11,9 +11,7 @@ import ShopCreation from "./CreationForms/ShopCreation.vue";
 let selected_item = ref("");
 
 /** Варианты для создания чего-либо */
-let items = ["","Пост", "Статью", "Учреждение", "Магазин", "Вопрос"];
-
-
+let items = ["", "Пост", "Статью", "Учреждение", "Магазин", "Вопрос"];
 
 // ==== Посты ====
 let post_title = ref("");
@@ -44,13 +42,16 @@ let institution_name = ref("");
           v-model="selected_item"
           :items="items"
           variant="underlined"
-		  class="mb-4"
+          class="mb-4"
         />
-
-        <PostCreation v-if="selected_item == 'Пост'" />
-        <ArticleCreation v-if="selected_item == 'Статью'" />
-        <InstitutionCreation v-if="selected_item == 'Учреждение'" />
-        <ShopCreation v-if="selected_item == 'Магазин'" />
+        <Transition name="bounce">
+          <div v-if="selected_item">
+            <PostCreation v-if="selected_item == 'Пост'" />
+            <ArticleCreation v-if="selected_item == 'Статью'" />
+            <InstitutionCreation v-if="selected_item == 'Учреждение'" />
+            <ShopCreation v-if="selected_item == 'Магазин'" />
+          </div>
+        </Transition>
       </v-col>
     </v-row>
   </v-container>
@@ -58,4 +59,5 @@ let institution_name = ref("");
 
 
 <style lang="scss" scoped>
+
 </style>
