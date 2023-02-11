@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-btn to="/mainForm">Создать</v-btn>    
+    <v-btn to="/mainForm" color="accent">Создать</v-btn>    
   </v-container>
 </template>
 

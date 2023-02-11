@@ -4,19 +4,14 @@ import { ref } from "vue-demi";
 
 phoneinput.init_phone_input_mask();
 
-let shop_types = [
-  "Игрушки",
-  "Канцтовары",
-  "Спорттовары",
-  "Книги",
-];
+let shop_types = ["Игрушки", "Канцтовары", "Спорттовары", "Книги"];
 let social_networks = ref([]);
 let legal = ref("");
 </script>
 
 <template>
   <v-row>
-    <v-col lg="6">
+    <v-col  lg="6">
       <v-text-field variant="underlined" label="Название"></v-text-field>
     </v-col>
     <v-col lg="6">
@@ -71,5 +66,8 @@ let legal = ref("");
     </v-col>
     <v-col lg="6"> </v-col>
   </v-row>
+  <div class="w-100 d-flex justify-center ma-4">
+    <v-btn to="/mainForm" color="accent">Создать</v-btn>
+  </div>
 </template>
 

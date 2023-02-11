@@ -8,4 +8,7 @@
     prepend-icon="mdi-camera"
     variant="underlined"
   ></v-file-input>
+  <div class="w-100 d-flex justify-center ma-4">
+    <v-btn to="/mainForm" color="accent">Создать</v-btn>
+  </div>
 </template>
