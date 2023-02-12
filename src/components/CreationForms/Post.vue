@@ -84,8 +84,8 @@ let view_more = ref(false)
       <!-- Photos -->
       <v-carousel
         hide-delimiters
-        class="mt-6"
-        height="300px"
+        class="mt-6 pb-4"
+        height="auto"
       >
         <template v-slot:prev="{ props }">
           <v-icon class="pa-4" color="cyan-lighten-4" icon="mdi-arrow-left" @click="props.onClick()"></v-icon>
