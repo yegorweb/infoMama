@@ -9,39 +9,35 @@ const routTo = (to) => {
   <div class="home-page">
     <v-hover v-slot="{ isHovering, props }" open-delay="200">
       <v-card
-        class="blog text-center"
-        color="success"
+        class="answer text-center"
+        color="secondary"
         :elevation="isHovering ? 16 : 2"
         :class="{ 'on-hover': isHovering }"
         v-bind="props"
       >
-        <v-img
-          height="100%"
-          class="d-flex justify-center align-end text-center"
-          src="../assets/images/main-banner.webp"
-          cover
-        >
-          Ответы</v-img
-        >
+        Ответы
       </v-card>
     </v-hover>
-    <v-card class="article" color="attention">Статьи </v-card>
-    <v-card class="post" color="success">
-      <v-img
-        height="100%"
-        class="d-flex justify-center text-center"
-        src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"
-        cover
-      >
-        Блоги</v-img
-      ></v-card
-    >
-    <v-card class="dictionary" color="primary">Справочники </v-card>
-    <v-card class="answer" color="secondary" @click="routTo('/mainForm')"
+    <v-card class="blog" color="success">Блоги </v-card>
+    <v-card class="photo_2" color="primary">
+      <v-img height="100%" src="../assets/images/photo_2.jpeg" cover> </v-img
+    ></v-card>
+    <v-card class="photo_1" color="primary">
+      <v-img height="100%" src="../assets/images/photo_1.jpg" cover> </v-img
+    ></v-card>
+    <v-card class="find" color="secondary" @click="routTo('/mainForm')"
       >Найти</v-card
     >
     <v-card class="create" color="accent" @click="routTo('/mainForm')">
       Создать</v-card
+    >
+    <v-card class="dictionary" color="primary">Справочники </v-card>
+    <v-card class="photo_3" color="success">
+      <v-img height="100%" src="../assets/images/photo_3.jpg" cover> </v-img
+    ></v-card>
+
+    <v-card class="article" color="success" @click="routTo('/mainForm')">
+      Статьи</v-card
     >
   </div>
 </template>
@@ -50,23 +46,17 @@ const routTo = (to) => {
 
 <style lang="scss" scoped>
 .home-page {
-  padding: 10px;
-  display: grid;
-  height: calc(100vh - 100px);
-  gap: 10px 10px;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-  grid-template-areas:
-    "blog article article"
-    "blog answer post"
-    "blog create post"
-    "dictionary dictionary post";
-
   .v-card {
     text-transform: uppercase;
     display: flex;
     justify-content: center;
     align-items: center;
+    .v-img {
+    
+      :hover {
+        animation: bounce-scale 1s;
+      }
+    }
   }
 }
 @media (max-width: 960px) {
@@ -75,32 +65,57 @@ const routTo = (to) => {
     display: grid;
     height: calc(100vh - 100px);
     gap: 5px 5px;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1f;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas:
-      "blog article"
-      "blog article"
-      " answer post"
-      " answer post"
-      "create dictionary"
-      "create dictionary";
+      "photo_1 photo_1 answer answer "
+      "photo_1 photo_1 blog blog"
+      "find find photo_2 photo_2"
+      "create create photo_2 photo_2"
+      "photo_3 photo_3 dictionary dictionary"
+      "photo_3 photo_3 article article";
+  }
+}
+@media (min-width: 961px) {
+  .home-page {
+    padding: 10px;
+    display: grid;
+    height: calc(100vh - 100px);
+    gap: 10px 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "answer answer blog blog photo_2 photo_2"
+      "photo_1 photo_1 find create photo_2 photo_2"
+      "photo_1 photo_1 find create photo_2 photo_2"
+      "dictionary dictionary photo_3 photo_3 article article";
   }
 }
 .blog {
   grid-area: blog;
 }
+.answer {
+  grid-area: answer;
+}
+.photo_1 {
+  grid-area: photo_1;
+}
+.photo_2 {
+  grid-area: photo_2;
+}
+.photo_3 {
+  grid-area: photo_3;
+}
 .article {
   grid-area: article;
 }
-.answer {
-  grid-area: answer;
+.find {
+  grid-area: find;
 }
 .dictionary {
   grid-area: dictionary;
 }
-.post {
-  grid-area: post;
-}
+
 .create {
   grid-area: create;
 }

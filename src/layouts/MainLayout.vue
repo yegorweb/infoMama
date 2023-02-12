@@ -66,14 +66,25 @@ let nav_buttons = [
 <template>
   <v-app>
     <!-- Header -->
-    <v-app-bar color="primary">
-      <v-container style="display: flex; flex-direction: row">
-        <v-app-bar-title>ИнфоМама</v-app-bar-title>
-        <v-icon
-          @click="navigation_is_open = !navigation_is_open"
-          icon="mdi-menu"
-        ></v-icon>
+    <v-app-bar color="primary" >
+      <v-container>
+        <v-row class="justify-space-between align-center">
+          <div><img style="height: 64px;"  src="../assets/icons/logo.png"/></div>
+          <div class="text-h6">ИнфоМама</div>
+          <div>
+            <v-icon
+              @click="navigation_is_open = !navigation_is_open"
+              icon="mdi-menu"
+            ></v-icon>
+          </div>
+        </v-row>
       </v-container>
+      <!-- <v-img height="100%" src="../assets/icons/logo.png"></v-img>
+      <v-app-bar-title> ИнфоМама</v-app-bar-title>
+      <v-icon
+        @click="navigation_is_open = !navigation_is_open"
+        icon="mdi-menu"
+      ></v-icon> -->
     </v-app-bar>
 
     <!-- Панель навигации -->
@@ -95,11 +106,10 @@ let nav_buttons = [
     <v-main>
       <router-view></router-view>
     </v-main>
-    <v-footer color="secondary" app class="text-center w-100">
-		<div class="text-center w-100">
-			    {{ new Date().getFullYear() }} — <strong>Сделано в Кубит</strong>
-		</div>
-  
+    <v-footer color="primary" app class="text-center w-100">
+      <div class="text-center w-100">
+        {{ new Date().getFullYear() }} — <strong>Сделано в Кубит</strong>
+      </div>
     </v-footer>
   </v-app>
 </template>
