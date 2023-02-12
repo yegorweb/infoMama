@@ -36,6 +36,23 @@ let props = defineProps({
   },
 })
 
+let current_time = new Date(Date.now())
+let post_time = new Date(Date.parse(props.date))
+
+function getPostDate() {
+  let options = {
+    month: 'long',
+    day: 'numeric',
+    weekday: 'short',
+    timezone: 'UTC',
+    hour: 'numeric',
+    minute: 'numeric',
+  }
+  current_time.getFullYear() == post_time.getFullYear() ? null : options.year = 'numeric'
+
+  return post_time.toLocaleString('ru', options)
+}
+
 let view_more = ref(false)
 </script>
 
@@ -48,17 +65,18 @@ let view_more = ref(false)
       <v-card-title>{{ props.title }}</v-card-title>
       <v-card-subtitle>{{ props.subtitle }}</v-card-subtitle>
       
-      <v-row no-gutters class="mt-2 d-flex flex-wrap">
+      <!-- Time -->
+      <div class="d-flex mt-2">
+        <v-icon icon="mdi-clock-outline"></v-icon>
+        <div class="ml-3">{{ getPostDate() }}</div>
+      </div>
+
+      <!-- Tags -->
+      <v-row no-gutters class="mt-3 d-flex flex-wrap">
         <div v-for="tag in props.tags" :key="tag" class="topic mr-1">{{ tag }}</div>
       </v-row>
 
-      <v-row no-gutters>
-        <v-col>
-          <v-icon icon="mdi-clock"></v-icon>
-        </v-col>
-        <v-col>{{ Date(props.date) }}</v-col>
-      </v-row>
-
+      <!-- Description -->
       <div class="mt-6">
         {{ props.description.length < 50 || view_more ? props.description : props.description.slice(0, 50)+'...' }}
       </div>
@@ -70,6 +88,7 @@ let view_more = ref(false)
         Показать больше
       </div>
 
+      <!-- Photos -->
       <v-carousel
         hide-delimiters
         class="mt-6"
@@ -78,6 +97,7 @@ let view_more = ref(false)
         <v-carousel-item v-for="url in props.photos" :key="url" :src="url" />
       </v-carousel>
 
+      <!-- Promo indicator -->
       <div v-if="props.promo" class="ads">реклама</div>
     </v-card-item>
   </v-card>
