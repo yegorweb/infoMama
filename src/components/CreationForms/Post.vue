@@ -52,6 +52,13 @@ let view_more = ref(false)
         <div v-for="tag in props.tags" :key="tag" class="topic mr-1">{{ tag }}</div>
       </v-row>
 
+      <v-row no-gutters>
+        <v-col>
+          <v-icon icon="mdi-clock"></v-icon>
+        </v-col>
+        <v-col>{{ Date(props.date) }}</v-col>
+      </v-row>
+
       <div class="mt-6">
         {{ props.description.length < 50 || view_more ? props.description : props.description.slice(0, 50)+'...' }}
       </div>
