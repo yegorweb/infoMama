@@ -1,5 +1,5 @@
 <script setup>
-import Post from "@/components/CreationForms/Post.vue";
+import Post from "@/components/Post.vue";
 import posts from "@/fakeDB/posts";
 </script>
 

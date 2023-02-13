@@ -53,7 +53,7 @@ let view_more = ref(false)
 </script>
 
 <template>
-  <v-card style="height: 100%; position: relative;">
+  <v-card style="height: 100%; position: relative">
     <v-card-item>
       <v-card-title>{{ props.title }}</v-card-title>
       <v-card-subtitle>{{ props.subtitle }}</v-card-subtitle>
@@ -70,32 +70,25 @@ let view_more = ref(false)
       </v-row>
 
       <!-- Description -->
-      <div class="mt-6">
-        {{ props.description.length < 50 || view_more ? props.description : props.description.slice(0, 50)+'...' }}
-      </div>
-      <div 
-        class="text-blue-grey-darken-3 view-more"
+        <div class="mt-6" style="transition: all .3s;">
+          {{ props.description.length < 50 || view_more ? props.description : props.description.slice(0, 50)+'...' }}
+        </div>
+      <v-icon 
+        :icon="view_more ? 'mdi-arrow-up' : 'mdi-arrow-down'"
+        color="blue-grey-darken-3"
+        class="w-100"
         style="cursor: pointer"
-        v-if="props.description.length >= 50" @click="view_more = !view_more"
-      >
-        {{ view_more ? 'Скрыть' : 'Показать больше' }}
-      </div>
+        v-if="props.description.length >= 50"
+        @click="view_more = !view_more"
+      />
 
       <!-- Photos -->
       <v-carousel
-        hide-delimiters
-        class="mt-6 pb-4"
+        :show-arrows="false"
+        class="mt-6 mb-4"
         height="auto"
       >
-        <template v-slot:prev="{ props }">
-          <v-icon class="pa-4" color="cyan-lighten-4" icon="mdi-arrow-left" @click="props.onClick()"></v-icon>
-        </template>
-
         <v-carousel-item v-for="url in props.photos" :key="url" :src="url" />
-
-        <template v-slot:next="{ props }">
-          <v-icon class="pa-4" color="cyan-lighten-4" icon="mdi-arrow-right" @click="props.onClick()"></v-icon>
-        </template>
       </v-carousel>
 
       <!-- Promo indicator -->
