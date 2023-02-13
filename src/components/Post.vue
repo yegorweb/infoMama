@@ -2,42 +2,15 @@
 import { ref, useSlots } from "vue-demi"
 
 let props = defineProps({
-  title: {
-    type: String,
+  post: {
+    type: Object,
     required: true
-  },
-  subtitle: {
-    type: String,
-    required: true
-  },
-  tags: {
-    type: Array,
-    required: true
-  },
-  date: {
-    type: Date,
-    required: true
-  },
-  author: {
-    type: String,
-    required: true
-  },
-  promo: {
-    type: Boolean,
-    required: true
-  },
-  description: {
-    type: String,
-    required: true
-  },
-  photos: {
-    type: Array,
-    required: true
-  },
+  }
+  // Base see in @/fakeDB/posts.js
 })
 
 let current_time = new Date(Date.now())
-let post_time = new Date(Date.parse(props.date))
+let post_time = new Date(Date.parse(props.post.date))
 
 function getPostDate() {
   let options = {
@@ -55,8 +28,8 @@ let view_more = ref(false)
 <template>
   <v-card style="height: 100%; position: relative">
     <v-card-item>
-      <v-card-title>{{ props.title }}</v-card-title>
-      <v-card-subtitle>{{ props.subtitle }}</v-card-subtitle>
+      <v-card-title>{{ props.post.title }}</v-card-title>
+      <v-card-subtitle>{{ props.post.subtitle }}</v-card-subtitle>
       
       <!-- Time -->
       <div class="d-flex mt-2">
@@ -66,19 +39,19 @@ let view_more = ref(false)
 
       <!-- Tags -->
       <v-row no-gutters class="mt-3 d-flex flex-wrap">
-        <div v-for="tag in props.tags" :key="tag" class="topic mr-1">{{ tag }}</div>
+        <div v-for="tag in props.post.tags" :key="tag" class="topic mr-1">{{ tag }}</div>
       </v-row>
 
       <!-- Description -->
         <div class="mt-6" style="transition: all .3s;">
-          {{ props.description.length < 50 || view_more ? props.description : props.description.slice(0, 50)+'...' }}
+          {{ props.post.description.length < 50 || view_more ? props.post.description : props.post.description.slice(0, 50)+'...' }}
         </div>
       <v-icon 
         :icon="view_more ? 'mdi-arrow-up' : 'mdi-arrow-down'"
         color="blue-grey-darken-3"
         class="w-100"
         style="cursor: pointer"
-        v-if="props.description.length >= 50"
+        v-if="props.post.description.length >= 50"
         @click="view_more = !view_more"
       />
 
@@ -88,11 +61,11 @@ let view_more = ref(false)
         class="mt-6 mb-4"
         height="auto"
       >
-        <v-carousel-item v-for="url in props.photos" :key="url" :src="url" />
+        <v-carousel-item v-for="url in props.post.photos" :key="url" :src="url" />
       </v-carousel>
 
       <!-- Promo indicator -->
-      <div v-if="props.promo" class="ads">реклама</div>
+      <div v-if="props.post.promo" class="ads">реклама</div>
     </v-card-item>
   </v-card>
 </template>
