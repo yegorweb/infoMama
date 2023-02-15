@@ -52,9 +52,8 @@ const routTo = (to) => {
     justify-content: center;
     align-items: center;
     .v-img {
-    
       :hover {
-        animation: bounce-scale 1s;
+        animation: bounce-scale 1s ;
       }
     }
   }
