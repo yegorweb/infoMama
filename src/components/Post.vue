@@ -1,5 +1,5 @@
 <script setup>
-import { ref, useSlots } from "vue-demi";
+import { ref } from "vue-demi";
 
 let props = defineProps({
   post: {
@@ -10,7 +10,7 @@ let props = defineProps({
 });
 
 let current_time = new Date(Date.now());
-let post_time = new Date(Date.parse(props.post.date));
+let post_time = new Date(props.post.date);
 
 function getPostDate() {
   let options = {
@@ -30,6 +30,7 @@ let view_more = ref(false);
 <template>
   <v-card style="height: 100%">
     <v-card-item>
+
       <v-card-title>{{ props.post.title }}</v-card-title>
       <v-card-subtitle>{{ props.post.subtitle }}</v-card-subtitle>
 
