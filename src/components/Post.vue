@@ -28,7 +28,7 @@ let view_more = ref(false);
 </script>
 
 <template>
-  <v-card style="height: 100%; position: relative">
+  <v-card style="height: 100%">
     <v-card-item>
       <v-card-title>{{ props.post.title }}</v-card-title>
       <v-card-subtitle>{{ props.post.subtitle }}</v-card-subtitle>
@@ -52,13 +52,20 @@ let view_more = ref(false);
       </div>
 
       <!-- Description -->
-      <div>
-        {{
-          props.post.description.length < 50 || view_more
-            ? props.post.description
-            : props.post.description.slice(0, 50) + "..."
-        }}
-      </div>
+      <Transition name="slide-fade">
+        <div v-if="view_more">
+          {{ props.post.description }}
+        </div>
+      </Transition>
+      <Transition name="slide-fade">
+        <div v-if="!view_more">
+          {{
+            props.post.description.length > 50
+              ? props.post.description.slice(0, 50) + "..."
+              : props.post.description
+          }}
+        </div>
+      </Transition>
       <div class="d-flex justify-end">
         <v-icon
           :icon="
@@ -72,7 +79,7 @@ let view_more = ref(false);
       </div>
 
       <!-- Photos -->
-      <v-carousel :show-arrows="false"  height="auto">
+      <v-carousel :show-arrows="false" height="auto">
         <v-carousel-item
           v-for="url in props.post.photos"
           :key="url"
@@ -87,13 +94,4 @@ let view_more = ref(false);
 </template>
 
 <style lang="scss" scoped>
-// .view-more {
-//   border-radius: 3px;
-//   padding: 1px;
-
-//   &:hover {
-//     background: rgba($color: #000000, $alpha: 0.1);
-//   }
-// }
-
 </style>
