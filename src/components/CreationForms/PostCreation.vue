@@ -1,6 +1,21 @@
+<script setup>
+import { ref } from "vue-demi";
+import topics from '@/fakeDB/topics'
+
+let title = ref('')
+let subtitle = ref('')
+let text = ref('')
+</script>
+
 <template>
-  <v-text-field label="Название" variant="underlined"></v-text-field>
-  <v-textarea auto-grow label="Текст" variant="underlined"></v-textarea>
+  <v-text-field v-model="title" label="Название" variant="underlined"></v-text-field>
+  <v-text-field v-model="subtitle" label="Подзаголовок" variant="underlined"></v-text-field>
+  <v-textarea v-model="text" auto-grow label="Текст" variant="underlined"></v-textarea>
+  <v-select
+    variant="underlined"
+    label="Тематика магазина"
+    :items="topics"
+  />
   <v-file-input
     multiple
     accept="image/png, image/jpeg, image/bmp"
