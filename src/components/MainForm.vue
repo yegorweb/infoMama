@@ -6,6 +6,7 @@ import PostCreation from "@/components/CreationForms/PostCreation.vue";
 import ArticleCreation from "@/components/CreationForms/ArticleCreation.vue";
 import InstitutionCreation from "./CreationForms/InstitutionCreation.vue";
 import ShopCreation from "./CreationForms/ShopCreation.vue";
+import QuestionCreation from "./CreationForms/QuestionCreation.vue";
 
 /** Выбранный вариант */
 let selected_item = ref("");
@@ -50,6 +51,7 @@ let institution_name = ref("");
             <ArticleCreation v-if="selected_item == 'Статью'" />
             <InstitutionCreation v-if="selected_item == 'Учреждение'" />
             <ShopCreation v-if="selected_item == 'Магазин'" />
+            <QuestionCreation v-if="selected_item == 'Вопрос'" />
           </div>
         </Transition>
       </v-col>
