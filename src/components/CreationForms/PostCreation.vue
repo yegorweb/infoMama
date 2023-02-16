@@ -13,7 +13,7 @@ let text = ref('')
   <v-textarea v-model="text" auto-grow label="Текст" variant="underlined"></v-textarea>
   <v-select
     variant="underlined"
-    label="Тематика магазина"
+    label="Тема"
     :items="topics"
   />
   <v-file-input
