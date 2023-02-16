@@ -1,10 +1,10 @@
 <script setup>
 import { ref } from "vue-demi";
+import topics from '@/fakeDB/topics'
 
 let article = ref("");
-
-let topics = ["Спорт", "Развлечения", "Психология", "Развитие"];
 </script>
+
 <template>
   <v-text-field label="Название" variant="underlined"></v-text-field>
   <v-select chips label="Тема" :items="topics" multiple variant="underlined" />
