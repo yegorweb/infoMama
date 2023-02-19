@@ -24,34 +24,6 @@ let nav_buttons = [
     title: "Блог",
   },
   {
-    route: "/education",
-    title: "Образование",
-  },
-  {
-    route: "/medicine",
-    title: "Медицина",
-  },
-  {
-    route: "/leisure",
-    title: "Досуг",
-  },
-  {
-    route: "/support",
-    title: "Помощь",
-  },
-  {
-    route: "/beauty",
-    title: "Красота",
-  },
-  {
-    route: "/job",
-    title: "Работа",
-  },
-  {
-    route: "/fleaMarket",
-    title: "Барахолка",
-  },
-  {
     route: "/delivery",
     title: "Доставка продуктов",
   },
