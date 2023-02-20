@@ -4,6 +4,7 @@ export default [
     firstName: 'Александр',
     lastName: 'Иванов',
     nickname: 'chemistry_easy',
+    avatar: 'https://static.life.ru/e3341037a5753acd963114cc00f5be65.jpg',
     posts: [
       '203813d88996465ba3145e4835420415'
     ],
@@ -13,9 +14,10 @@ export default [
   },
   {
     id: 'b82736a26c60402e91c88d8b07235ecb',
-    firstName: 'Рандомный',
-    lastName: 'Чел',
-    nickname: 'random',
+    firstName: 'Владимир',
+    lastName: 'Путин',
+    nickname: 'putin',
+    avatar: 'https://m.buro247.ru/images/dasha/news/putin4.jpg',
     posts: [
       'b757617ca5e444608c4abf6babd017ce'
     ],
@@ -28,6 +30,7 @@ export default [
     firstName: 'Григорий',
     lastName: 'Дзюин',
     nickname: 'jet_green',
+    avatar: '',
     posts: [
       '5895ed2b126a419884a11cf1ac51d012'
     ],
@@ -40,6 +43,7 @@ export default [
     firstName: 'Elon',
     lastName: 'Musk',
     nickname: 'elon',
+    avatar: 'https://www.vkpress.ru/upload/iblock/42f/ld1xalc06v3heorx5o1z7hbd29w7e10e.jpg',
     posts: [
       '8a6c00c7c82e449f8e3c0b39d50ac664'
     ],

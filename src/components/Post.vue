@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue-demi";
+import users from '@/fakeDB/users'
 
 let props = defineProps({
   post: {
@@ -21,15 +22,27 @@ function getPostDate() {
     ? null
     : (options.year = "numeric");
 
-  return post_time.toLocaleString("ru", options);
+  return post_time.toLocaleString("ru", options)
 }
 
-let view_more = ref(false);
+let user = users.find(user => user.id === props.post.author)
+
+let view_more = ref(false)
 </script>
 
 <template>
-  <v-card style="height: 100%">
+  <v-card class="h-100">
     <v-card-item>
+
+      <div class="mb-3 d-flex align-center cursor-pointer">
+        <v-avatar :image="user.avatar" />
+        
+        <!-- FUTURE: заменить div на router-link -->
+        <div class="d-flex ml-3 flex-column align-start">
+          <div class="font-weight-black">{{ user.firstName + ' ' + user.lastName }}</div>
+          <div class="text-caption">{{ '@' + user.nickname }}</div>
+        </div>
+      </div>
 
       <v-card-title>{{ props.post.title }}</v-card-title>
       <v-card-subtitle>{{ props.post.subtitle }}</v-card-subtitle>
@@ -90,6 +103,13 @@ let view_more = ref(false);
 
       <!-- Promo indicator -->
       <div v-if="props.post.promo" class="text-caption text-right">реклама</div>
+
+      <!--<v-card-actions class="align-self-end">
+        <v-btn>
+          mdi-heart - активная иконка лайка
+          <v-icon icon="mdi-heart-outline"></v-icon> 
+        </v-btn>
+      </v-card-actions> -->
     </v-card-item>
   </v-card>
 </template>
