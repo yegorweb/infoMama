@@ -14,10 +14,10 @@ export default [
   },
   {
     id: 'b82736a26c60402e91c88d8b07235ecb',
-    firstName: 'Владимир',
-    lastName: 'Путин',
-    nickname: 'putin',
-    avatar: 'https://m.buro247.ru/images/dasha/news/putin4.jpg',
+    firstName: 'Александр',
+    lastName: 'Иванов',
+    nickname: 'ivanov',
+    avatar: 'https://yt3.ggpht.com/ytc/AKedOLQvVzOQH1_sdGwvMdYE1PU_efnr1wCm5jG-aya1sw=s900-c-k-c0x00ffffff-no-rj',
     posts: [
       'b757617ca5e444608c4abf6babd017ce'
     ],
