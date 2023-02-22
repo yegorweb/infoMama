@@ -18,27 +18,24 @@ const routTo = (to) => {
         Ответы
       </v-card>
     </v-hover>
-    <v-card class="blog" color="success">Блоги </v-card>
+    <v-card class="blog" color="success" @click="routTo('/blog')">Блоги </v-card>
     <v-card class="photo_2" color="primary">
       <v-img height="100%" src="../assets/images/photo_2.jpeg" cover> </v-img
     ></v-card>
     <v-card class="photo_1" color="primary">
       <v-img height="100%" src="../assets/images/photo_1.jpg" cover> </v-img
     ></v-card>
-    <v-card class="find" color="secondary" @click="routTo('/mainForm')"
-      >Найти</v-card
-    >
+    <v-card class="find" color="secondary">Найти</v-card>
     <v-card class="create" color="accent" @click="routTo('/mainForm')">
       Создать</v-card
     >
+    <v-card class="advert" color="primary"> Объявления</v-card>
     <v-card class="dictionary" color="primary">Справочники </v-card>
     <v-card class="photo_3" color="success">
       <v-img height="100%" src="../assets/images/photo_3.jpg" cover> </v-img
     ></v-card>
 
-    <v-card class="article" color="success" @click="routTo('/mainForm')">
-      Статьи</v-card
-    >
+    <v-card class="article" color="success"> Статьи</v-card>
   </div>
 </template>
 
@@ -53,7 +50,7 @@ const routTo = (to) => {
     align-items: center;
     .v-img {
       :hover {
-        animation: bounce-scale 1s ;
+        animation: bounce-scale 1s;
       }
     }
   }
@@ -72,7 +69,7 @@ const routTo = (to) => {
       "find find photo_2 photo_2"
       "create create photo_2 photo_2"
       "photo_3 photo_3 dictionary dictionary"
-      "photo_3 photo_3 article article";
+      "advert advert article article";
   }
 }
 @media (min-width: 961px) {
@@ -87,7 +84,7 @@ const routTo = (to) => {
       "answer answer blog blog photo_2 photo_2"
       "photo_1 photo_1 find create photo_2 photo_2"
       "photo_1 photo_1 find create photo_2 photo_2"
-      "dictionary dictionary photo_3 photo_3 article article";
+      "dictionary dictionary photo_3 photo_3 advert article";
   }
 }
 .blog {
@@ -111,6 +108,10 @@ const routTo = (to) => {
 .find {
   grid-area: find;
 }
+.advert {
+  grid-area: advert;
+}
+
 .dictionary {
   grid-area: dictionary;
 }
