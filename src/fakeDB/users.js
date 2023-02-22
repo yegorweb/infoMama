@@ -3,7 +3,7 @@ export default [
     id: 'ab5162764d9c489395d949dbcda12a04',
     firstName: 'Александр',
     lastName: 'Иванов',
-    nickname: 'chemistry_easy',
+    nickname: 'alexivan',
     avatar: 'https://static.life.ru/e3341037a5753acd963114cc00f5be65.jpg',
     posts: [
       '203813d88996465ba3145e4835420415'
@@ -17,7 +17,7 @@ export default [
     firstName: 'Александр',
     lastName: 'Иванов',
     nickname: 'ivanov',
-    avatar: 'https://yt3.ggpht.com/ytc/AKedOLQvVzOQH1_sdGwvMdYE1PU_efnr1wCm5jG-aya1sw=s900-c-k-c0x00ffffff-no-rj',
+    avatar: 'https://avatars.mds.yandex.net/get-pdb/33827/45baea71-5337-4a04-b547-25482c80093c/s1200?webp=false',
     posts: [
       'b757617ca5e444608c4abf6babd017ce'
     ],
@@ -27,10 +27,10 @@ export default [
   },
   {
     id: '40994f9640b7427dbda56cb6c1cc12b3',
-    firstName: 'Григорий',
-    lastName: 'Дзюин',
-    nickname: 'jet_green',
-    avatar: '',
+    firstName: 'Райан',
+    lastName: 'Гослинг',
+    nickname: 'ryan',
+    avatar: 'https://kartinkin.net/pics/uploads/posts/2022-08/1660617493_3-kartinkin-net-p-raian-gosling-oboi-krasivo-3.jpg',
     posts: [
       '5895ed2b126a419884a11cf1ac51d012'
     ],
