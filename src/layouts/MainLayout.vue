@@ -40,9 +40,9 @@ let nav_buttons = [
     <!-- Header -->
     <v-app-bar color="primary" >
       <v-container>
-        <v-row class="justify-space-between align-center">
-          <div><img style="height: 64px;"  src="../assets/icons/logo.png"/></div>
-          <div class="text-h6">ИнфоМама</div>
+        <v-row class="justify-space-between header-container align-center">
+          <div><img style="height: 64px;" src="../assets/icons/logo.png"/></div>
+          <div class="text-h6 header-title">ИнфоМама</div>
           <div>
             <v-icon
               @click="navigation_is_open = !navigation_is_open"
@@ -91,5 +91,14 @@ let nav_buttons = [
 .nav-list-item-link {
   text-decoration: none;
   color: #000000;
+}
+.header-container {
+  position: relative;
+}
+.header-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 </style>
