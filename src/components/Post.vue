@@ -85,6 +85,7 @@ let view_more = ref(false)
           :icon="
             view_more ? 'mdi-chevron-double-up' : 'mdi-chevron-double-down'
           "
+          class="w-100 pt-1 pb-1 justify-end"
           color="primary"
           style="cursor: pointer"
           v-if="props.post.description.length >= 50"
@@ -93,7 +94,7 @@ let view_more = ref(false)
       </div>
 
       <!-- Photos -->
-      <v-carousel :show-arrows="false" height="auto">
+      <v-carousel :class="view_more ? '' : 'mt-4'" :show-arrows="false" height="auto">
         <v-carousel-item
           v-for="url in props.post.photos"
           :key="url"
