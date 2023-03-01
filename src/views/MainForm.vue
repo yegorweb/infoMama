@@ -1,12 +1,12 @@
 <script setup>
 import router from "@/router";
 import { onMounted, ref } from "vue-demi";
-import BackButton from "./BackButton.vue";
+import BackButton from "@/components/BackButton.vue";
 import PostCreation from "@/components/CreationForms/PostCreation.vue";
 import ArticleCreation from "@/components/CreationForms/ArticleCreation.vue";
-import InstitutionCreation from "./CreationForms/InstitutionCreation.vue";
-import ShopCreation from "./CreationForms/ShopCreation.vue";
-import QuestionCreation from "./CreationForms/QuestionCreation.vue";
+import InstitutionCreation from "@/components/CreationForms/InstitutionCreation.vue";
+import ShopCreation from "@/components/CreationForms/ShopCreation.vue";
+import QuestionCreation from "@/components/CreationForms/QuestionCreation.vue";
 
 /** Выбранный вариант */
 let selected_item = ref("");

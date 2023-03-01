@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue-demi";
-import MainForm from "@/components/MainForm.vue";
+import MainForm from "@/views/MainForm.vue";
 
 let navigation_is_open = ref(false);
 

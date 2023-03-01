@@ -7,8 +7,5 @@
 </script>
 
 <style lang="scss">
-html, body {
-  overflow-x: hidden;
-  overflow-y: auto;
-}
+@import '@/assets/styles/main.scss';
 </style>

@@ -1,5 +1,8 @@
 @import url(./animations.scss);
 
+html {
+  margin-left: calc(100vw - 100%);
+}
 html, body {
   overflow-x: hidden;
   overflow-y: auto;

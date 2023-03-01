@@ -29,7 +29,7 @@ const routes = [
       {
         path: '/mainForm',
         name: 'MainForm',
-        component: () => import('@/components/MainForm.vue')
+        component: () => import('@/views/MainForm.vue')
       }
     ]
   }
