@@ -1,6 +1,6 @@
 <script setup>
 import router from "@/router";
-import { ref } from "vue-demi";
+import { onMounted, ref } from "vue-demi";
 import BackButton from "./BackButton.vue";
 import PostCreation from "@/components/CreationForms/PostCreation.vue";
 import ArticleCreation from "@/components/CreationForms/ArticleCreation.vue";
@@ -57,9 +57,24 @@ let institution_name = ref("");
       </v-col>
     </v-row>
   </v-container>
+
+  <img src="@/assets/images/form_left.webp" class="decor decor_left d-none d-sm-block" alt="" />
+  <img src="@/assets/images/form_right.webp" class="decor decor_right d-none d-sm-block" alt="" />
 </template>
 
 
 <style lang="scss" scoped>
+.decor {
+  position: fixed;
+  z-index: 0;
+  bottom: 40px;
+  width: 25vw;
 
+  &_left {
+    left: 0;
+  }
+  &_right {
+    right: 0;
+  }
+}
 </style>

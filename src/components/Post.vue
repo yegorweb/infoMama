@@ -10,19 +10,21 @@ let props = defineProps({
   // Base see in @/fakeDB/posts.js
 });
 
-let current_time = new Date(Date.now());
-let post_time = new Date(props.post.date);
+let current_time = Date.now();
+let post_time = props.post.date;
+let delta = current_time - post_time
 
 function getPostDate() {
   let options = {
     month: "long",
     day: "numeric",
-  };
-  current_time.getFullYear() == post_time.getFullYear()
-    ? null
-    : (options.year = "numeric");
+  }
 
-  return post_time.toLocaleString("ru", options)
+  if ((new Date(current_time)).getFullYear() != (new Date(post_time)).getFullYear()) {
+    options.year = "numeric"
+  }
+
+  return (new Date(post_time)).toLocaleString("ru", options)
 }
 
 let user = users.find(user => user.id === props.post.author)
@@ -38,14 +40,13 @@ let view_more = ref(false)
         <v-avatar :image="user.avatar" />
         
         <!-- FUTURE: заменить div на router-link -->
-        <div class="d-flex ml-3 flex-column align-start">
-          <div class="font-weight-black">{{ user.firstName + ' ' + user.lastName }}</div>
-          <div class="text-caption">{{ '@' + user.nickname }}</div>
+        <div class="ml-3">
+          <span class="font-weight-black">{{ user.firstName + ' ' + user.lastName }}</span>
+          <span class="text-caption ml-2">{{ '@' + user.nickname }}</span>
+          <span class="text-caption ml-2">*</span>
+          <span class="text-caption ml-2">{{ getPostDate() }}</span>
         </div>
       </div>
-
-      <v-card-title>{{ props.post.title }}</v-card-title>
-      <v-card-subtitle>{{ props.post.subtitle }}</v-card-subtitle>
 
       <!-- Tags -->
       <div class="mt-1 flex-wrap">
@@ -59,10 +60,6 @@ let view_more = ref(false)
         >
           {{ tag }}
         </v-chip>
-      </div>
-      <!-- Time -->
-      <div class="text-caption text-right">
-        <div class="ml-3">{{ getPostDate() }}</div>
       </div>
 
       <!-- Description -->
