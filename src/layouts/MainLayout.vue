@@ -38,9 +38,9 @@ let nav_buttons = [
 <template>
   <v-app>
     <!-- Header -->
-    <v-app-bar color="primary" >
+    <v-app-bar color="primary">
       <v-container>
-        <v-row class="justify-space-between header-container align-center">
+        <v-row class="justify-space-between header-container ma-0 pa-0 align-center">
           <div><img style="height: 64px;" src="../assets/icons/logo.png"/></div>
           <div class="text-h6 header-title">ИнфоМама</div>
           <div>
