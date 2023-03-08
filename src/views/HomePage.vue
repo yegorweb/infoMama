@@ -35,7 +35,7 @@ const routTo = (to) => {
       <v-img height="100%" src="../assets/images/photo_3.jpg" cover> </v-img
     ></v-card>
 
-    <v-card class="article" color="success"> Статьи</v-card>
+    <v-card class="article" @click="routTo('/articles')" color="success"> Статьи</v-card>
   </div>
 </template>
 
