@@ -17,12 +17,14 @@ let items = ["", "Пост", "Статью", "Учреждение", "Магаз
 // ==== Посты ====
 let post_title = ref("");
 let post_text = ref("");
-let post_images; // FUTURE: допилить
+let post_images; // TODO: допилить
 
 // ==== Статьи ====
 let article_title = ref("");
 let article_topics = ref([]);
 let article_text = ref("");
+
+window.onkeyup = () => console.log(article_title.value)
 
 // ==== Учреждения ====
 let institution_type = ref("");
@@ -48,7 +50,7 @@ let institution_name = ref("");
         <Transition name="bounce">
           <div v-if="selected_item">
             <PostCreation v-if="selected_item == 'Пост'" />
-            <ArticleCreation v-if="selected_item == 'Статью'" />
+            <ArticleCreation v-model:title="article_title" v-model:topics="article_topics" v-model:text="article_text" v-if="selected_item == 'Статью'" />
             <InstitutionCreation v-if="selected_item == 'Учреждение'" />
             <ShopCreation v-if="selected_item == 'Магазин'" />
             <QuestionCreation v-if="selected_item == 'Вопрос'" />
