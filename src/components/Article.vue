@@ -13,18 +13,27 @@ let props = defineProps({
 let current_time = new Date(Date.now())
 let post_time = new Date(props.article.date)
 let delta = current_time - post_time
+let days_ago = Math.floor(delta/1000/60/60/24)
 
 function getPostDate() {
   let options = {
     month: "long",
     day: "numeric",
   }
-
   if (current_time.getFullYear() != post_time.getFullYear()) {
     options.year = "numeric"
   }
 
+  if (delta <= 86400000) return 'сегодня'
+  if (delta > 86400000 && delta <= 172800000) return 'вчера'
+  if (delta > 172800000 && delta <= 2678400000) return days_ago + ' дн' + getEnding(days_ago) + ' назад'
+
   return post_time.toLocaleString("ru", options)
+}
+function getEnding(number) {
+    let lastDigit = number % 10
+    if (lastDigit >= 5 && lastDigit <= 9) return 'ей'
+    if (lastDigit >= 2 && lastDigit <= 4) return 'я'
 }
 
 let user = users.find(user => user.id === props.article.author)
