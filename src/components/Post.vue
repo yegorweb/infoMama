@@ -32,7 +32,7 @@ function getPostDate() {
 }
 function getEnding(number) {
     let lastDigit = number % 10
-    if (lastDigit >= 5 && lastDigit <= 9) return 'й'
+    if (lastDigit >= 5 && lastDigit <= 9) return 'ей'
     if (lastDigit >= 2 && lastDigit <= 4) return 'я'
 }
 
