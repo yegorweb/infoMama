@@ -13,18 +13,27 @@ let props = defineProps({
 let current_time = new Date(Date.now())
 let post_time = new Date(props.post.date)
 let delta = current_time - post_time
+let days_ago = Math.floor(delta/1000/60/60/24)
 
 function getPostDate() {
   let options = {
     month: "long",
     day: "numeric",
   }
-
   if (current_time.getFullYear() != post_time.getFullYear()) {
     options.year = "numeric"
   }
 
+  if (delta <= 86400000) return 'сегодня'
+  if (delta > 86400000 && delta <= 172800000) return 'вчера'
+  if (delta > 172800000 && delta <= 2678400000) return days_ago + ' дн' + getEnding(days_ago) + ' назад'
+
   return post_time.toLocaleString("ru", options)
+}
+function getEnding(number) {
+    let lastDigit = number % 10
+    if (lastDigit >= 5 && lastDigit <= 9) return 'й'
+    if (lastDigit >= 2 && lastDigit <= 4) return 'я'
 }
 
 let user = users.find(user => user.id === props.post.author)
@@ -34,13 +43,14 @@ let user = users.find(user => user.id === props.post.author)
   <v-card class="h-100">
     <v-card-item>
 
-      <div class="d-flex flex-row justify-start align-center cursor-pointer">
-        <v-avatar :image="user.avatar" />
+      <!-- Author -->
+      <div class="d-flex flex-row justify-start align-center">
+        <v-avatar :image="user.avatar" class="cursor-pointer" />
         
         <!-- FUTURE: заменить div на router-link -->
-        <div class="ml-3">
-          <div class="d-flex flex-row justify-start lh-1 align-center">
-            <span class="font-weight-black">{{ user.firstName + ' ' + user.lastName }}</span>
+        <div class="ml-3 w-100">
+          <div class="lh-1 cursor-pointer align-center w-100">
+            <span class="font-weight-black">{{ user.firstName + ' ' + user.lastName + '  ' }}</span>
             <span class="text-caption ml-2">{{ '@' + user.nickname }}</span>
           </div>
           <span class="text-caption lh-1">{{ getPostDate() }}</span>

@@ -16,7 +16,7 @@ export default [
     title: 'Причины сухости рук у малыша',
     subtitle: 'Как вылечить сухие ручки?',
     tags: ['Здоровье'],
-    date: 1674451235000,
+    date: 1677855622000,
     author: 'b82736a26c60402e91c88d8b07235ecb',
     promo: false,
     description: 'Lorem ipsum',
