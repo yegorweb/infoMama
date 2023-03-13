@@ -23,6 +23,10 @@ let nav_buttons = [
     route: "/blog",
     title: "Блог",
   },
+	{
+		route: '/articles',
+		title: 'Статьи'
+	},
   {
     route: "/delivery",
     title: "Доставка продуктов",
