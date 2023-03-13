@@ -71,6 +71,7 @@ let institution_name = ref("");
   z-index: 0;
   bottom: 40px;
   width: 25vw;
+  pointer-events: none;
 
   &_left {
     left: 0;
