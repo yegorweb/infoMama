@@ -47,12 +47,11 @@ let nav_buttons = [
         <v-row class="justify-space-between header-container ma-0 pa-0 align-center">
           <div><img style="height: 64px;" src="../assets/icons/logo.png"/></div>
           <div class="text-h6 header-title">ИнфоМама</div>
-          <div>
-            <v-icon
-              @click="navigation_is_open = !navigation_is_open"
-              icon="mdi-menu"
-            ></v-icon>
-          </div>
+          <v-icon
+            @click="navigation_is_open = !navigation_is_open"
+            icon="mdi-menu"
+            class="pt-5 pl-5 pb-5"
+          ></v-icon>
         </v-row>
       </v-container>
       <!-- <v-img height="100%" src="../assets/icons/logo.png"></v-img>
