@@ -64,9 +64,7 @@ let user = users.find(user => user.id === props.article.author)
       </div>
 
       <!-- Description -->
-      <div class="mt-4">
-        {{ props.article.description }}
-      </div>
+      <div v-html="props.article.text" class="mt-4"></div>
 
       <!-- Photos -->
       <v-carousel class="mt-4" :show-arrows="false" height="auto">
