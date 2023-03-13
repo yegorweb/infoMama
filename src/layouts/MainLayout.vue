@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue-demi";
 import MainForm from "@/views/MainForm.vue";
+import { useRouter } from "vue-router";
 
 let navigation_is_open = ref(false);
 
@@ -36,6 +37,8 @@ let nav_buttons = [
     title: "О нас",
   },
 ];
+
+let router = useRouter()
 </script>
 
 
@@ -69,10 +72,8 @@ let nav_buttons = [
       temporary
     >
       <v-list>
-        <v-list-item v-for="(button, index) in nav_buttons" :key="index">
-          <router-link class="nav-list-item-link" :to="button.route">{{
-            button.title
-          }}</router-link>
+        <v-list-item @click="router.push(button.route)" v-for="(button, index) in nav_buttons" :key="index">
+          {{ button.title }}
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -91,10 +92,6 @@ let nav_buttons = [
 	
 
 <style lang="scss" scoped>
-.nav-list-item-link {
-  text-decoration: none;
-  color: #000000;
-}
 .header-container {
   position: relative;
 }
